@@ -1,0 +1,328 @@
+<script>
+jQuery(document).ready(function($){
+        new jQueryCollapse($("#collapse-options"), {
+          open: function() {
+            this.slideDown(150);
+          },
+          close: function() {
+            this.slideUp(150);
+          }
+        });
+		
+		$( "#fromHistoric" ).datepicker({
+			defaultDate: "+1w",
+			changeMonth: true,
+			changeYear: true,
+			numberOfMonths: 1,
+			onClose: function( selectedDate ) {
+				$( "#toHistoric" ).datepicker( "option", "minDate", selectedDate );
+			}
+		});
+		$( "#toHistoric" ).datepicker({
+			defaultDate: "+1w",
+			changeMonth: true,
+			changeYear: true,
+			numberOfMonths: 1,
+			onClose: function( selectedDate ) {
+				$( "#fromHistoric" ).datepicker( "option", "maxDate", selectedDate );
+			}
+		})
+			.datepicker("setDate", new Date());
+	
+		$( "#eq-mag-slider" ).slider({
+		  range: true,
+		  min: 0.0,
+		  max: 9.95,
+		  step:  .1,
+		  values: [ 0, 9.9 ],
+		  slide: function( event, ui ) {
+		  	for (var i = 0; i < ui.values.length; i++) {
+				$("input.eq-val[data-index=" + i + "]").val(ui.values[i]);
+			}	  
+		  }
+		});
+		
+		$("input.eq-val").change(function() {
+			var $this = $(this);
+			$("#eq-mag-slider").slider("values", $this.data("index"), $this.val());
+		});
+
+		$( "#ts-height-slider" ).slider({
+		  range: true,
+		  min: 0.0,
+		  max: 9.95,
+		  step:  .1,
+		  values: [ 0, 9.9 ],
+		  slide: function( event, ui ) {
+		  	for (var i = 0; i < ui.values.length; i++) {
+				$("input.ts-val[data-index=" + i + "]").val(ui.values[i]);
+			}	  
+		  }
+		});
+		
+		$("input.ts-val").change(function() {
+			var $this = $(this);
+			$("#ts-height-slider").slider("values", $this.data("index"), $this.val());
+		});
+
+		$( "#lat-slider" ).slider({
+		  orientation: "vertical",
+		  range: true,
+		  min: -90.0,
+		  max: 90.05,		  
+		  step:  .1,
+		  values: [ -90, 90 ],		  
+		  slide: function( event, ui ) {
+		  	for (var i = 0; i < ui.values.length; i++) {
+				$("input.lat-val[data-index=" + i + "]").val(ui.values[i]);
+			}	  
+		  }
+		});
+		
+		$("input.lat-val").change(function() {
+			var $this = $(this);
+			$("#lat-slider").slider("values", $this.data("index"), $this.val());
+		});
+        
+		
+		$( "#lon-slider" ).slider({
+		  range: true,
+		  min: -180.0,
+		  max: 180.05,
+		  step:  .1,
+		  values: [ -180, 180 ],
+		  slide: function( event, ui ) {
+		  	for (var i = 0; i < ui.values.length; i++) {
+				$("input.lon-val[data-index=" + i + "]").val(ui.values[i]);
+			}	  
+		  }
+		});
+		
+		$("input.lon-val").change(function() {
+			var $this = $(this);
+			$("#lon-slider").slider("values", $this.data("index"), $this.val());
+		});
+
+});
+</script>
+
+
+			
+<div class = "col-sm-12 col-md-8">
+<h2 style="border-bottom: 1px solid #ddd;">Historical Table</h2>
+<div class="table-responsive">		
+	<table class="table table-striped">
+      <thead>
+		<tr>
+		  <th>Time</th>
+		  <th>Magnitude</th>
+		  <th>Depth</th>
+		  <th>Latitude</th>
+		  <th>Longitude</th>
+		  <th>Location</th>
+		</tr>
+		</thead>
+		<tbody>
+		<tr>
+		  <th scope="row">May  03 1:51:00  AM</th>
+		  <td>5.1</td>
+		  <td>13.7</td>
+		  <td>67° 54' N</td>
+		  <td>162° 18' W</td>
+		  <td>65 Miles N of Kotzebue, Alaska</td>	
+		</tr>
+        <tr>
+          <th scope="row" colspan="6" id="tsunami-content">
+			<div class="radio">
+			  <label><input type="checkbox" name="alertStat" checked>Alert Status Polygons</label>
+			</div>
+			<div class="radio">
+			  <label><input type="checkbox" name="seaForecast" checked>Sea Level Forecast Map(s)</label>
+			</div>
+			<div class="radio">
+			  <label><input type="checkbox" name="travelTime" checked>Travel Time Map(s)</label>
+			</div>
+			<a href="#">Coastal Arrival Forecast Map(s)</a>
+			<a href="#">Coastal Arrival Forecast/Observation Table</a>
+			<a href="#"><div class="level" style="color:orange; display:inline;">Advisory</div> Message for Pacific Ocean, South China Sea, Hawaii, and Carribean Sea  - PTWC</a>
+			<a href="#"><div class="level" style="color:red; display:inline;">Warning</div> Message for US Mainland, Alaska , Puerto Rico, US Virgin Islands, and Canada - NTWC</a>
+			</td>
+        </tr>
+        <tr>
+          <th scope="row">May  03 1:51:00  AM</th>
+		  <td>5.1</td>
+		  <td>13.7</td>
+		  <td>67° 54' N</td>
+		  <td>162° 18' W</td>
+		  <td>65 Miles N of Kotzebue, Alaska</td>
+        </tr>
+		<tr>
+          <th scope="row">May  03 1:51:00  AM</th>
+		  <td>5.1</td>
+		  <td>13.7</td>
+		  <td>67° 54' N</td>
+		  <td>162° 18' W</td>
+		  <td>65 Miles N of Kotzebue, Alaska</td>
+        </tr>
+		<tr>
+          <th scope="row">May  03 1:51:00  AM</th>
+		  <td>5.1</td>
+		  <td>13.7</td>
+		  <td>67° 54' N</td>
+		  <td>162° 18' W</td>
+		  <td>65 Miles N of Kotzebue, Alaska</td>
+        </tr>
+		<tr>
+          <th scope="row">May  03 1:51:00  AM</th>
+		  <td>5.1</td>
+		  <td>13.7</td>
+		  <td>67° 54' N</td>
+		  <td>162° 18' W</td>
+		  <td>65 Miles N of Kotzebue, Alaska</td>
+        </tr>
+		<tr>
+          <th scope="row">May  03 1:51:00  AM</th>
+		  <td>5.1</td>
+		  <td>13.7</td>
+		  <td>67° 54' N</td>
+		  <td>162° 18' W</td>
+		  <td>65 Miles N of Kotzebue, Alaska</td>
+        </tr>
+		<tr>
+          <th scope="row">May  03 1:51:00  AM</th>
+		  <td>5.1</td>
+		  <td>13.7</td>
+		  <td>67° 54' N</td>
+		  <td>162° 18' W</td>
+		  <td>65 Miles N of Kotzebue, Alaska</td>
+        </tr>
+      </tbody>
+    </table>
+	</div>	
+</div>
+
+<div class = "col-sm-12 col-md-4">
+
+	<h2 style="border-bottom: 1px solid #ddd;">Advanced Options</h2>
+	<div class = "well well-lg">	
+		<div id="collapse-options" data-collapse>
+			<h3 class="open">Date Range</h3>
+			<div>
+				<div class ="form-group date-container">
+					<label for="fromHistoric">From</label>
+					<input type="text" id="fromHistoric" name="fromHistoric" class="form-control">
+				</div>
+				<div class ="form-group date-container">	
+					<label for="toHistoric">To</label>
+					<input type="text" id="toHistoric" name="toHistoric" class="form-control">
+				</div>
+			</div>
+			<h3>Geographic Location</h3>
+			<div>
+				<label for="lat-val">Latitude</label><br>
+				<div class = "form-group input-range">
+						<input type="text" data-index="0" class="lat-val form-control" value="-90" data-toggle="tooltip" data-placement="left" title="Specify a Minimum Degree"><p>Degrees From</p>
+				</div>
+				<div class = "form-group input-range">
+						<input type="text" data-index="1" class="lat-val form-control" value="90" data-toggle="tooltip" data-placement="left" title="Specify a Maximum Degree"><p>Degrees To</p>
+				</div>
+				<div id = "lat-slider"></div>
+				<label for="lon-val">Longitude</label><br>
+				<div class = "form-group input-range">
+						<input type="text" data-index="0" class="lon-val form-control" value="-180" data-toggle="tooltip" data-placement="left" title="Specify a Minimum Degree"><p>Degrees From</p>
+				</div>
+				<div class = "form-group input-range">
+						<input type="text" data-index="1" class="lon-val form-control" value="180" data-toggle="tooltip" data-placement="left" title="Specify a Maximum Degree"><p>Degrees To</p>
+				</div>
+				<div id = "lon-slider"></div>				
+			</div>			
+			<h3>Message Type and Area of Responsibility</h3>
+			<div>
+				<div class="row">
+					<form role ="form " class="check-group" >
+						<h4>Message Type</h4>					
+						<div class="option-box">	
+								<label for="cbInformation">
+								<input type="checkbox" id="cbInformation" checked>Information</label>
+						</div>								
+						<div class="option-box">	
+								<label for="cbAdvisory">
+								<input type="checkbox" id="cbAdvisory" checked>Advisory</label>
+						</div>						
+						<div class="option-box">	
+								<label for="cbWatch">
+								<input type="checkbox" id="cbWatch" checked>Watch</label>
+						</div>								
+						<div class="option-box">	
+								<label for="cbWarning">
+								<input type="checkbox" id="cbWarning" checked>Warning</label>
+						</div>								
+
+					</form>
+					<form role ="form check-group" class="check-group" style="float:right;">
+						<h4>Area of Responsibility</h4>
+						<div class="option-box">					
+								<label for="cbPacific">
+								<input type="checkbox" id="cbPacific" checked>Pacific</label>
+						</div>
+						<div class="option-box">						
+								<label for="cbHawaii">
+								<input type="checkbox" id="cbHawaii" checked>Hawaii</label>
+						</div>	
+						<div class="option-box">	
+								<label for="cbAlaska">
+								<input type="checkbox" id="cbAlaska" checked>Alaska</label>
+						</div>
+						<div class="option-box">				
+								<label for="cbPRVI">
+								<input type="checkbox" id="cbPRVI" checked>PR | VI</label>
+						</div>	
+					</form>
+				</div>	
+			</div>          
+			<h3>Earthquake Magnitude Range</h3>
+				<div>
+					<label for="eq-value">Magnitude Range</label><br>
+					<div class = "form-group input-range">
+							<input type="text" data-index="0" value="0" class="eq-val form-control" data-toggle="tooltip" data-placement="left" title="Specify a Minimum Range"><p> Mw Mininum</p>
+					</div>
+					<div class = "form-group input-range">
+							<input type="text" data-index="1" value="9.9" class="eq-val form-control" data-toggle="tooltip" data-placement="left" title="Specify a Maximum Range"><p>Mw Maximum</p>
+					</div>
+					<div id="eq-mag-slider"></div>
+				</div>
+			<h3>Tsunami Height Observations</h3>
+				<div>			
+					<label for="ts-value">Height Range</label><br>
+					<div class = "form-group input-range">
+							<input type="text" data-index="0" value="0" class="ts-val form-control" data-toggle="tooltip" data-placement="left" title="Specify a Minimum Range"><p>Meters</p>
+					</div>
+					<div class = "form-group input-range">
+							<input type="text" data-index="1" value="9.9" class="ts-val form-control" data-toggle="tooltip" data-placement="left" title="Specify a Maximum Range"><p>Meters</p>
+					</div>
+					<div id="ts-height-slider"></div>
+				</div>
+			<h3>Origin</h3>
+			<div>
+				<div class="form-group">
+					<label class="control-label" for="country">Country</label>
+					<select id ="country" class="form-control" >
+						<option value="Uganda">Uganda</option>
+						<option value="Greece">Greece</option>
+						<option value="USA">USA</option>
+						<option value="Virgin Islands">Virgin Islands</option>
+					</select>
+				</div>
+				<div class="form-group">
+					<label class="control-label" for="statepr">State | Province</label>
+					<select id ="statepr" class="form-control" >
+						<option value="Uganda">Maryland</option>
+						<option value="Greece">Virginia</option>
+						<option value="USA">Quebec</option>
+					</select>
+				</div>				
+			</div>
+		</div>
+		<button type="button" class="btn btn-default btn-block" style="margin-left:auto;margin-right:auto;width:94%">Submit</button>
+	</div>
+</div>
