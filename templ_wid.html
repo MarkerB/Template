@@ -9,22 +9,22 @@ jQuery(document).ready(function($){
           }
         });
 		
-		$( "#fromHistoric" ).datepicker({
+		$( "#evs_time_beg" ).datepicker({
 			defaultDate: "+1w",
 			changeMonth: true,
 			changeYear: true,
 			numberOfMonths: 1,
 			onClose: function( selectedDate ) {
-				$( "#toHistoric" ).datepicker( "option", "minDate", selectedDate );
+				$( "#evs_time_end" ).datepicker( "option", "minDate", selectedDate );
 			}
 		});
-		$( "#toHistoric" ).datepicker({
+		$( "#evs_time_end" ).datepicker({
 			defaultDate: "+1w",
 			changeMonth: true,
 			changeYear: true,
 			numberOfMonths: 1,
 			onClose: function( selectedDate ) {
-				$( "#fromHistoric" ).datepicker( "option", "maxDate", selectedDate );
+				$( "#evs_time_beg" ).datepicker( "option", "maxDate", selectedDate );
 			}
 		})
 			.datepicker("setDate", new Date());
@@ -209,30 +209,30 @@ jQuery(document).ready(function($){
 			<h3 class="open">Date Range</h3>
 			<div>
 				<div class ="form-group date-container">
-					<label for="fromHistoric">From</label>
-					<input type="text" id="fromHistoric" name="fromHistoric" class="form-control">
+					<label for="evs_time_beg">From</label>
+					<input type="text" id="evs_time_beg" name="evs_time_beg" class="form-control">
 				</div>
 				<div class ="form-group date-container">	
-					<label for="toHistoric">To</label>
-					<input type="text" id="toHistoric" name="toHistoric" class="form-control">
+					<label for="evs_time_end">To</label>
+					<input type="text" id="evs_time_end" name="evs_time_end" class="form-control">
 				</div>
 			</div>
 			<h3>Geographic Location</h3>
 			<div>
 				<label for="lat-val">Latitude</label><br>
 				<div class = "form-group input-range">
-						<input type="text" data-index="0" class="lat-val form-control" value="-90" data-toggle="tooltip" data-placement="left" title="Specify a Minimum Degree"><p>Degrees From</p>
+						<input type="text" id="evs_lat_beg" data-index="0" class="lat-val form-control" value="-90" data-toggle="tooltip" data-placement="left" title="Specify a Minimum Degree"><p>Degrees From</p>
 				</div>
 				<div class = "form-group input-range">
-						<input type="text" data-index="1" class="lat-val form-control" value="90" data-toggle="tooltip" data-placement="left" title="Specify a Maximum Degree"><p>Degrees To</p>
+						<input type="text" id="evs_lat_end" data-index="1" class="lat-val form-control" value="90" data-toggle="tooltip" data-placement="left" title="Specify a Maximum Degree"><p>Degrees To</p>
 				</div>
 				<div id = "lat-slider"></div>
 				<label for="lon-val">Longitude</label><br>
 				<div class = "form-group input-range">
-						<input type="text" data-index="0" class="lon-val form-control" value="-180" data-toggle="tooltip" data-placement="left" title="Specify a Minimum Degree"><p>Degrees From</p>
+						<input type="text" id="evs_lng_beg" data-index="0" class="lon-val form-control" value="-180" data-toggle="tooltip" data-placement="left" title="Specify a Minimum Degree"><p>Degrees From</p>
 				</div>
 				<div class = "form-group input-range">
-						<input type="text" data-index="1" class="lon-val form-control" value="180" data-toggle="tooltip" data-placement="left" title="Specify a Maximum Degree"><p>Degrees To</p>
+						<input type="text" id="evs_lng_end" data-index="1" class="lon-val form-control" value="180" data-toggle="tooltip" data-placement="left" title="Specify a Maximum Degree"><p>Degrees To</p>
 				</div>
 				<div id = "lon-slider"></div>				
 			</div>			
@@ -242,40 +242,40 @@ jQuery(document).ready(function($){
 					<form role ="form " class="check-group" >
 						<h4>Message Type</h4>					
 						<div class="option-box">	
-								<label for="cbInformation">
-								<input type="checkbox" id="cbInformation" checked>Information</label>
+								<label for="evs_al_Information">
+								<input type="checkbox" id="evs_al_Information" checked>Information</label>
 						</div>								
 						<div class="option-box">	
-								<label for="cbAdvisory">
-								<input type="checkbox" id="cbAdvisory" checked>Advisory</label>
+								<label for="evs_al_Watch">
+								<input type="checkbox" id="evs_al_Watch" checked>Watch</label>
+						</div>								
+						<div class="option-box">	
+								<label for="evs_al_Advisory">
+								<input type="checkbox" id="evs_al_Advisory" checked>Advisory</label>
 						</div>						
 						<div class="option-box">	
-								<label for="cbWatch">
-								<input type="checkbox" id="cbWatch" checked>Watch</label>
-						</div>								
-						<div class="option-box">	
-								<label for="cbWarning">
-								<input type="checkbox" id="cbWarning" checked>Warning</label>
+								<label for="evs_al_Warning">
+								<input type="checkbox" id="evs_al_Warning" checked>Warning</label>
 						</div>								
 
 					</form>
 					<form role ="form check-group" class="check-group" style="float:right;">
 						<h4>Area of Responsibility</h4>
 						<div class="option-box">					
-								<label for="cbPacific">
-								<input type="checkbox" id="cbPacific" checked>Pacific</label>
+								<label for="evs_aor_Pacific">
+								<input type="checkbox" id="evs_aor_Pacific" checked>Pacific</label>
 						</div>
 						<div class="option-box">						
-								<label for="cbHawaii">
-								<input type="checkbox" id="cbHawaii" checked>Hawaii</label>
+								<label for="evs_aor_Hawaii">
+								<input type="checkbox" id="evs_aor_Hawaii" checked>Hawaii</label>
 						</div>	
 						<div class="option-box">	
-								<label for="cbAlaska">
-								<input type="checkbox" id="cbAlaska" checked>Alaska</label>
+								<label for="evs_aor_Alaska">
+								<input type="checkbox" id="evs_aor_Alaska" checked>Alaska</label>
 						</div>
 						<div class="option-box">				
-								<label for="cbPRVI">
-								<input type="checkbox" id="cbPRVI" checked>PR | VI</label>
+								<label for="evs_aor_PRVI">
+								<input type="checkbox" id="evs_aor_PRVI" checked>PR | VI</label>
 						</div>	
 					</form>
 				</div>	
@@ -284,10 +284,10 @@ jQuery(document).ready(function($){
 				<div>
 					<label for="eq-value">Magnitude Range</label><br>
 					<div class = "form-group input-range">
-							<input type="text" data-index="0" value="0" class="eq-val form-control" data-toggle="tooltip" data-placement="left" title="Specify a Minimum Range"><p> Mw Mininum</p>
+							<input type="text" id="evs_mag_beg" data-index="0" value="0" class="eq-val form-control" data-toggle="tooltip" data-placement="left" title="Specify a Minimum Range"><p> Mw Mininum</p>
 					</div>
 					<div class = "form-group input-range">
-							<input type="text" data-index="1" value="9.9" class="eq-val form-control" data-toggle="tooltip" data-placement="left" title="Specify a Maximum Range"><p>Mw Maximum</p>
+							<input type="text" id="evs_mag_end" data-index="1" value="9.9" class="eq-val form-control" data-toggle="tooltip" data-placement="left" title="Specify a Maximum Range"><p>Mw Maximum</p>
 					</div>
 					<div id="eq-mag-slider"></div>
 				</div>
@@ -295,18 +295,18 @@ jQuery(document).ready(function($){
 				<div>			
 					<label for="ts-value">Height Range</label><br>
 					<div class = "form-group input-range">
-							<input type="text" data-index="0" value="0" class="ts-val form-control" data-toggle="tooltip" data-placement="left" title="Specify a Minimum Range"><p>Meters</p>
+							<input type="text" id="evs_waveamp_beg" data-index="0" value="0" class="ts-val form-control" data-toggle="tooltip" data-placement="left" title="Specify a Minimum Range"><p>Meters</p>
 					</div>
 					<div class = "form-group input-range">
-							<input type="text" data-index="1" value="9.9" class="ts-val form-control" data-toggle="tooltip" data-placement="left" title="Specify a Maximum Range"><p>Meters</p>
+							<input type="text" id="evs_waveamp_end" data-index="1" value="9.9" class="ts-val form-control" data-toggle="tooltip" data-placement="left" title="Specify a Maximum Range"><p>Meters</p>
 					</div>
 					<div id="ts-height-slider"></div>
 				</div>
 			<h3>Origin</h3>
 			<div>
 				<div class="form-group">
-					<label class="control-label" for="country">Country</label>
-					<select id ="country" class="form-control" >
+					<label class="control-label" for="evs_country">Country</label>
+					<select id ="evs_country" class="form-control" >
 						<option value="Uganda">Uganda</option>
 						<option value="Greece">Greece</option>
 						<option value="USA">USA</option>
@@ -314,8 +314,8 @@ jQuery(document).ready(function($){
 					</select>
 				</div>
 				<div class="form-group">
-					<label class="control-label" for="statepr">State | Province</label>
-					<select id ="statepr" class="form-control" >
+					<label class="control-label" for="evs_province">State | Province</label>
+					<select id ="evs_province" class="form-control" >
 						<option value="Uganda">Maryland</option>
 						<option value="Greece">Virginia</option>
 						<option value="USA">Quebec</option>
