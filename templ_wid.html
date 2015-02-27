@@ -108,102 +108,10 @@ jQuery(document).ready(function($){
 
 
 			
-<div class = "col-sm-12 col-md-8">
-<h2 style="border-bottom: 1px solid #ddd;">Historical Table</h2>
-<div class="table-responsive">		
-	<table class="table table-striped">
-      <thead>
-		<tr>
-		  <th>Time</th>
-		  <th>Magnitude</th>
-		  <th>Depth</th>
-		  <th>Latitude</th>
-		  <th>Longitude</th>
-		  <th>Location</th>
-		</tr>
-		</thead>
-		<tbody>
-		<tr>
-		  <th scope="row">May  03 1:51:00  AM</th>
-		  <td>5.1</td>
-		  <td>13.7</td>
-		  <td>67° 54' N</td>
-		  <td>162° 18' W</td>
-		  <td>65 Miles N of Kotzebue, Alaska</td>	
-		</tr>
-        <tr>
-          <th scope="row" colspan="6" id="tsunami-content">
-			<div class="radio">
-			  <label><input type="checkbox" name="alertStat" checked>Alert Status Polygons</label>
-			</div>
-			<div class="radio">
-			  <label><input type="checkbox" name="seaForecast" checked>Sea Level Forecast Map(s)</label>
-			</div>
-			<div class="radio">
-			  <label><input type="checkbox" name="travelTime" checked>Travel Time Map(s)</label>
-			</div>
-			<a href="#">Coastal Arrival Forecast Map(s)</a>
-			<a href="#">Coastal Arrival Forecast/Observation Table</a>
-			<a href="#"><div class="level" style="color:orange; display:inline;">Advisory</div> Message for Pacific Ocean, South China Sea, Hawaii, and Carribean Sea  - PTWC</a>
-			<a href="#"><div class="level" style="color:red; display:inline;">Warning</div> Message for US Mainland, Alaska , Puerto Rico, US Virgin Islands, and Canada - NTWC</a>
-			</td>
-        </tr>
-        <tr>
-          <th scope="row">May  03 1:51:00  AM</th>
-		  <td>5.1</td>
-		  <td>13.7</td>
-		  <td>67° 54' N</td>
-		  <td>162° 18' W</td>
-		  <td>65 Miles N of Kotzebue, Alaska</td>
-        </tr>
-		<tr>
-          <th scope="row">May  03 1:51:00  AM</th>
-		  <td>5.1</td>
-		  <td>13.7</td>
-		  <td>67° 54' N</td>
-		  <td>162° 18' W</td>
-		  <td>65 Miles N of Kotzebue, Alaska</td>
-        </tr>
-		<tr>
-          <th scope="row">May  03 1:51:00  AM</th>
-		  <td>5.1</td>
-		  <td>13.7</td>
-		  <td>67° 54' N</td>
-		  <td>162° 18' W</td>
-		  <td>65 Miles N of Kotzebue, Alaska</td>
-        </tr>
-		<tr>
-          <th scope="row">May  03 1:51:00  AM</th>
-		  <td>5.1</td>
-		  <td>13.7</td>
-		  <td>67° 54' N</td>
-		  <td>162° 18' W</td>
-		  <td>65 Miles N of Kotzebue, Alaska</td>
-        </tr>
-		<tr>
-          <th scope="row">May  03 1:51:00  AM</th>
-		  <td>5.1</td>
-		  <td>13.7</td>
-		  <td>67° 54' N</td>
-		  <td>162° 18' W</td>
-		  <td>65 Miles N of Kotzebue, Alaska</td>
-        </tr>
-		<tr>
-          <th scope="row">May  03 1:51:00  AM</th>
-		  <td>5.1</td>
-		  <td>13.7</td>
-		  <td>67° 54' N</td>
-		  <td>162° 18' W</td>
-		  <td>65 Miles N of Kotzebue, Alaska</td>
-        </tr>
-      </tbody>
-    </table>
-	</div>	
-</div>
-
 <div class = "col-sm-12 col-md-4">
 
 	<h2 style="border-bottom: 1px solid #ddd;">Advanced Options</h2>
+	<form id="frmSearch" role ="form " class="check-group" >
 	<div class = "well well-lg">	
 		<div id="collapse-options" data-collapse>
 			<h3 class="open">Date Range</h3>
@@ -239,7 +147,6 @@ jQuery(document).ready(function($){
 			<h3>Message Type and Area of Responsibility</h3>
 			<div>
 				<div class="row">
-					<form role ="form " class="check-group" >
 						<h4>Message Type</h4>					
 						<div class="option-box">	
 								<label for="evs_al_Information">
@@ -258,8 +165,7 @@ jQuery(document).ready(function($){
 								<input type="checkbox" id="evs_al_Warning" checked>Warning</label>
 						</div>								
 
-					</form>
-					<form role ="form check-group" class="check-group" style="float:right;">
+					<div style="float:right;">
 						<h4>Area of Responsibility</h4>
 						<div class="option-box">					
 								<label for="evs_aor_Pacific">
@@ -277,7 +183,7 @@ jQuery(document).ready(function($){
 								<label for="evs_aor_PRVI">
 								<input type="checkbox" id="evs_aor_PRVI" checked>PR | VI</label>
 						</div>	
-					</form>
+					</div>
 				</div>	
 			</div>          
 			<h3>Earthquake Magnitude Range</h3>
@@ -307,22 +213,17 @@ jQuery(document).ready(function($){
 				<div class="form-group">
 					<label class="control-label" for="evs_country">Country</label>
 					<select id ="evs_country" class="form-control" >
-						<option value="Uganda">Uganda</option>
-						<option value="Greece">Greece</option>
-						<option value="USA">USA</option>
-						<option value="Virgin Islands">Virgin Islands</option>
+						<option value="All">All</option>
 					</select>
 				</div>
 				<div class="form-group">
 					<label class="control-label" for="evs_province">State | Province</label>
 					<select id ="evs_province" class="form-control" >
-						<option value="Uganda">Maryland</option>
-						<option value="Greece">Virginia</option>
-						<option value="USA">Quebec</option>
+						<option value="All">All</option>
 					</select>
 				</div>				
 			</div>
 		</div>
-		<button type="button" class="btn btn-default btn-block" style="margin-left:auto;margin-right:auto;width:94%">Submit</button>
+		<input type="submit" value="Submit" class="btn btn-default btn-block" style="margin-left:auto;margin-right:auto;width:94%">
 	</div>
 </div>
